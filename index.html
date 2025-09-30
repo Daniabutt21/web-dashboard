@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en" ng-app="dashboardApp">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Daily Workload Dashboard</title>
+    <link rel="stylesheet" href="/styles/app.css" />
+    <script src="/app/config/env.local.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.3/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.3/angular-route.min.js"></script>
+    <script src="/app/app.module.js"></script>
+    <script src="/app/app.routes.js"></script>
+    <script src="/app/services/api.service.js"></script>
+    <script src="/app/components/stat-card/stat-card.component.js"></script>
+    
+    <script src="/app/pages/dashboard/dashboard.controller.js"></script>
+    
+  </head>
+  <body>
+    <div class="container">
+      <header class="app-header">
+        <h1>Daily Workload Dashboard</h1>
+        
+      </header>
+      <main ng-view></main>
+    </div>
+  </body>
+  </html>
+
+

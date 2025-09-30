@@ -1,0 +1,11 @@
+<section>
+  <div style="margin-bottom:12px;">
+    <label style="font-weight:700; margin-right:8px;">Date</label>
+    <input type="date" ng-model="$ctrl.date" ng-change="$ctrl.load()" />
+  </div>
+  <div class="cards">
+    <stat-card ng-repeat="m in $ctrl.metrics" label="{{m.label}}" value="m.value" highlight="m.highlight"></stat-card>
+  </div>
+</section>
+
+
