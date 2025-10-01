@@ -1,11 +1,12 @@
 <section>
-  <div style="margin-bottom:12px;">
-    <label style="font-weight:700; margin-right:8px;">Date</label>
-    <input type="date" ng-model="$ctrl.date" ng-change="$ctrl.load()" />
-  </div>
-  <div class="cards">
-    <stat-card ng-repeat="m in $ctrl.metrics" label="{{m.label}}" value="m.value" highlight="m.highlight"></stat-card>
-  </div>
+	<div class="mb-3 d-flex align-items-center justify-content-center gap-2">
+		<label class="fw-bold me-2">Date</label>
+		<input type="date" class="form-control date-input" ng-model="$ctrl.date" />
+		<button class="btn btn-danger" ng-click="$ctrl.load()">Filter</button>
+	</div>
+	<div class="cards">
+		<stat-card ng-repeat="m in $ctrl.metrics track by m.label" label="{{m.label}}"
+			value="m.value | shortNumber" highlight="m.highlight"
+			icon="{{m.icon}}"></stat-card>
+	</div>
 </section>
-
-

@@ -1,20 +1,15 @@
 <div class="grid">
-  <table>
-    <thead>
-      <tr>
-        <th ng-repeat="c in $ctrl.columns">{{c.label}}</th>
-        <th style="width:160px">Actions</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr ng-repeat="r in $ctrl.rows track by r.id">
-        <td ng-repeat="c in $ctrl.columns">{{r[c.field]}}</td>
-        <td>
-          <button class="btn" ng-click="$ctrl.handleEdit(r)">Edit</button>
-          <button class="btn" ng-disabled="$ctrl.deleteDisabled" ng-click="$ctrl.handleDelete(r)">Delete</button>
-        </td>
-      </tr>
-    </tbody>
-  </table>
+	<table>
+		<thead>
+			<tr>
+				<th ng-repeat="c in $ctrl.columns">{{c.label}}</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="r in $ctrl.rows track by r.id">
+				<td ng-repeat="c in $ctrl.columns">{{r[c.field]}}</td>
+			</tr>
+		</tbody>
+	</table>
 </div>
 

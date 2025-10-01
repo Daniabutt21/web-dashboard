@@ -34,3 +34,8 @@ window.ENV = {
   apiBaseUrl: 'http://localhost:3000'
 };
 ```
+
+## Scripts
+
+- `npm start` - serve the app (static server)
+- `npm run build` - placeholder for future build/bundling if needed

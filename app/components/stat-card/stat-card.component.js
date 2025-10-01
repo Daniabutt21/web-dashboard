@@ -1,14 +1,17 @@
+// Presentational metric card component. Displays a title, value, optional highlight, and icon.
 (function () {
-  'use strict';
+	'use strict';
 
-  angular.module('dashboardApp').component('statCard', {
-    bindings: {
-      label: '@',
-      value: '<',
-      highlight: '<?'
-    },
-    templateUrl: '/web-dashboard/app/components/stat-card/stat-card.component.html'
-  });
+	angular.module('dashboardApp').component('statCard', {
+		bindings: {
+			label: '@',
+			value: '<',
+			highlight: '<?',
+			icon: '@'
+		},
+		templateUrl: '/app/components/stat-card/stat-card.component.html'
+	});
 })();
+
 
 
