@@ -9,9 +9,6 @@
 			highlight: '<?',
 			icon: '@'
 		},
-		templateUrl: '/app/components/stat-card/stat-card.component.html'
+    templateUrl: '/app/components/stat-card/stat-card.component.html'
 	});
 })();
-
-
-
