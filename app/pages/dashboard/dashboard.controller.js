@@ -2,12 +2,26 @@
 (function () {
 	'use strict';
 
-	angular.module('dashboardApp').controller('DashboardController', ['$location', 'api', 'initialMetrics', function ($location, api, initialMetrics) {
+	angular.module('dashboardApp').controller('DashboardController', ['$location', 'api', 'initialMetrics', '$timeout', function ($location, api, initialMetrics, $timeout) {
 		var vm = this;
 		vm.metrics = (initialMetrics && initialMetrics.metrics) || [];
-		vm.date = new Date().toISOString().slice(0, 10);
 		vm.loading = false;
 		var hasLoadedOnce = false;
+		
+		function setTodaysDate() {
+			var today = new Date();
+			var year = today.getFullYear();
+			var month = String(today.getMonth() + 1).padStart(2, '0');
+			var day = String(today.getDate()).padStart(2, '0');
+			vm.date = year + '-' + month + '-' + day;
+			console.log('Date set to:', vm.date); // Debug log
+		}
+		
+		setTodaysDate();
+		
+		$timeout(function() {
+			setTodaysDate();
+		}, 100);
 
 		function toYyyyMmDd(value) {
 			if (!value) return '';
@@ -33,8 +47,7 @@
 					'SUCCESSFULLY SENT TO DMV': 'bank',
 					'WS CORRECTION REQUESTED': 'request',
 					'WS CORRECTION COMPLETE': 'done',
-					'POST AUDIT': 'audit',
-					'COMPLETED': 'completed'
+					'POST AUDIT': 'audit'
 				};
 				var metrics = (data.metrics || []);
 				vm.metrics = metrics.map(function (m) {
@@ -59,7 +72,11 @@
 		vm.onDateChange = function () {
 			// Keep normalized model but don't auto-fetch; fetch happens on Filter click
 			var dateStr = toYyyyMmDd(vm.date);
-			vm.date = dateStr || vm.date;
+			if (!dateStr) {
+				setTodaysDate();
+			} else {
+				vm.date = dateStr;
+			}
 		};
 
 		vm.load();

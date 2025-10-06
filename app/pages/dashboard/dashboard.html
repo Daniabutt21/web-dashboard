@@ -1,7 +1,7 @@
 <section>
 	<div class="mb-3 d-flex align-items-center justify-content-center gap-2">
 		<label class="fw-bold me-2">Date</label>
-		<input type="date" class="form-control date-input" ng-model="$ctrl.date" />
+		<input type="date" class="form-control date-input" ng-model="$ctrl.date" ng-change="$ctrl.onDateChange()" value="{{$ctrl.date}}" />
 		<button class="btn btn-danger" ng-click="$ctrl.load()">Filter</button>
 	</div>
 	<div class="cards">
